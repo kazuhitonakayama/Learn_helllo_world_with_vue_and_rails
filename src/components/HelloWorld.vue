@@ -2,7 +2,8 @@
 <template>
   <div class="hello">
     <h1>{{ product }}</h1>
-    <p>The product "{{ product }}" is most popular shoes in this country!</p>
+    <p>{{ description }}</p>
+    <button v-on:click="reverseMessage">Reverse Message</button>
   </div>
 </template>
 
@@ -12,7 +13,13 @@ export default {
   data() {
     return {
       product: 'Nike Socks',
+      description: 'The product is most popular shoes in this country!',
     };
+  },
+  methods: {
+    reverseMessage() {
+      this.product = this.product.split('').reverse().join('');
+    },
   },
 };
 </script>
