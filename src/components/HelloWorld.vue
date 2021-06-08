@@ -1,3 +1,4 @@
+<!-- ここで各Viewを作っている -->
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
