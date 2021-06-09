@@ -4,6 +4,7 @@
     <h1>{{ product }}</h1>
     <p>{{ description }}</p>
     <button v-on:click="reverseMessage">Reverse Message</button>
+    <a v-bind:href="url">アマゾンへ</a>
   </div>
 </template>
 
@@ -14,6 +15,7 @@ export default {
     return {
       product: 'Nike Socks',
       description: 'The product is most popular shoes in this country!',
+      url: 'https://amazon.com',
     };
   },
   methods: {
