@@ -5,7 +5,6 @@
     <p>{{ description }}</p>
     <button v-on:click="reverseMessage">Reverse Message</button>
     <a v-bind:href="url">アマゾンへ</a>
-    <input @click="getPosts" type="button" value="投稿を取得">
     <div v-for="post in postIndex" :key="post.id">
       <p>{{ post.title }}</p>
     </div>
@@ -13,6 +12,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'HelloWorld',
   data() {
@@ -23,13 +24,16 @@ export default {
       postIndex: [],
     };
   },
+  mounted() {
+    this.fetchPosts();
+  },
   methods: {
     reverseMessage() {
       this.product = this.product.split('').reverse().join('');
     },
-    getPosts() {
+    fetchPosts() {
       const url = 'http://localhost:3000/api/v1/posts';
-      this.axios.get(url).then(
+      axios.get(url).then(
         (response) => {
           this.postIndex = response.data.data;
         }).catch((e) => {
