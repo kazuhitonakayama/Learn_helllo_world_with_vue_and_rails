@@ -6,9 +6,10 @@ import Users from '@/components/Users';
 Vue.use(Router);
 // ここでルーティングを定義している
 export default new Router({
+  mode: 'history', // for not including "#" in URL
   routes: [
     {
-      path: '/aa',
+      path: '/',
       name: 'HelloWorld',
       component: HelloWorld,
     },

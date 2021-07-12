@@ -11,10 +11,14 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "local-serve": "vue-cli-service serve",
+    "dev-build": "vue-cli-service build --mode development"
   },
   "dependencies": {
+    "@vue/cli-service": "^4.5.13",
     "axios": "^0.21.1",
+    "microcms-js-sdk": "^1.2.0",
     "vue": "^2.5.2",
     "vue-axios": "^3.2.4",
     "vue-router": "^3.0.1"

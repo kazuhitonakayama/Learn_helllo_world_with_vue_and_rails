@@ -6,9 +6,9 @@
     <button v-on:click="reverseMessage">Reverse Message</button>
     <a v-bind:href="url">アマゾンへ</a>
     <div class="wrapper__posts">
-      <div v-for="post in postIndex" :key="post.id" class="each__post">
+      <div v-for="post in diaryIndex" :key="post.id" class="each__post">
         <p>タイトル：{{ post.title }}</p>
-        <p>コンテンツ：{{ post.body }}</p>
+        <div v-html="post.content"></div>
       </div>
     </div>
   </div>
@@ -24,21 +24,21 @@ export default {
       product: 'Nike Socks',
       description: 'The product is most popular shoes in this country!',
       url: 'https://amazon.com',
-      postIndex: [],
+      diaryIndex: [],
     };
   },
   mounted() {
-    this.fetchPosts();
+    this.fetchDiaries();
   },
   methods: {
     reverseMessage() {
       this.product = this.product.split('').reverse().join('');
     },
-    fetchPosts() {
-      const url = 'http://localhost:3000/api/v1/posts';
-      axios.get(url).then(
+    fetchDiaries() {
+      const url = 'https://kazuhitonakayama.microcms.io/api/v1/diaries';
+      axios.get(url, { headers: { 'X-API-KEY': process.env.VUE_APP_MICROCMS_API_KEY } }).then(
         (response) => {
-          this.postIndex = response.data.data;
+          this.diaryIndex = response.data.contents;
         }).catch((e) => {
         alert(e);
       });

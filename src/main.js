@@ -12,6 +12,7 @@ Vue.use(VueAxios, axios);
 
 /* eslint-disable no-new */
 new Vue({
+  render: h => h(App), // for resolving white page
   el: '#app',
   router,
   components: { App },
