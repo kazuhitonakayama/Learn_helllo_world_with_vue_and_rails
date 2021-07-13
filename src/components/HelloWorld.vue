@@ -8,7 +8,7 @@
     <div class="wrapper__posts">
       <div v-for="post in diaryIndex" :key="post.id" class="each__post">
         <p>タイトル：{{ post.title }}</p>
-        <div v-html="post.content"></div>
+        <div v-html="$sanitize(post.content)"></div>
       </div>
     </div>
   </div>
