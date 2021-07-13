@@ -1,6 +1,6 @@
 # learn_hello_world_vue
 
-> hello world project
+> This is my first experience that fetching posts data from microCMS.This app only can display posts data of microCMS
 
 ## Build local deve environment
 
